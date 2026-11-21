@@ -1,0 +1,28 @@
+[workspace]
+resolver = "2"
+members = [
+    "kernel",
+]
+default-members = ["kernel"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["Integrate OS Engineering"]
+license = "MIT"
+
+[profile.dev]
+panic = "abort"
+opt-level = 1
+debug = true
+overflow-checks = true
+incremental = false
+
+[profile.release]
+panic = "abort"
+opt-level = 2
+debug = false
+lto = false
+codegen-units = 1
+overflow-checks = true
+strip = "debuginfo"
